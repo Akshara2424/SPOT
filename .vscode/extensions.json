@@ -1,1 +1,10 @@
-{ "recommendations": ["expo.vscode-expo-tools"] }
+{
+  "recommendations": [
+    "anthropic.claude-code",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "prisma.prisma",
+    "bradlc.vscode-tailwindcss",
+    "eamodio.gitlens"
+  ]
+}
