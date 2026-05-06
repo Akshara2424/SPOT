@@ -3,3 +3,4 @@ packages:
   - 'apps/api'
   - 'packages/types'
   - 'packages/config'
+nodeLinker: hoisted
