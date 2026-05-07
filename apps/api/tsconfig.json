@@ -9,6 +9,10 @@
     "outDir": "./dist",
     "rootDir": "./src",
     "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "types": ["../../packages/types/src/index.ts"]
+    },
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,

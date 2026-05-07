@@ -8,11 +8,43 @@ export const UserSchema = z.object({
   email: z.string().email(),
   name: z.string(),
   avatar: z.string().optional(),
+  sports: z.array(z.string()).default([]),
+  level: z.enum(['beginner', 'intermediate', 'advanced']).default('beginner'),
+  locality: z.string().optional(),
   createdAt: z.date(),
   updatedAt: z.date(),
 });
 
 export type User = z.infer<typeof UserSchema>;
+
+/**
+ * Auth Session Types
+ */
+export const AuthSessionSchema = z.object({
+  access_token: z.string(),
+  refresh_token: z.string().optional(),
+  expires_in: z.number(),
+  expires_at: z.number().optional(),
+  token_type: z.string().default('Bearer'),
+  user: z.object({
+    id: z.string(),
+    email: z.string().email(),
+    phone: z.string().optional(),
+  }),
+});
+
+export type AuthSession = z.infer<typeof AuthSessionSchema>;
+
+/**
+ * Onboarding Types
+ */
+export const OnboardingInputSchema = z.object({
+  sports: z.array(z.string()).min(1, 'Select at least one sport'),
+  level: z.enum(['beginner', 'intermediate', 'advanced']),
+  locality: z.string().min(2, 'Locality is required'),
+});
+
+export type OnboardingInput = z.infer<typeof OnboardingInputSchema>;
 
 /**
  * Venue Types
